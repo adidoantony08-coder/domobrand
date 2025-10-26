@@ -11,7 +11,6 @@ function Home({ onNavigate }: HomeProps) {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Images du carrousel
   const carouselImages = [
     "https://i.ibb.co/NgMLycY9/3da8b3679757c5925969bb57aa4e98c5.jpg",
     "https://i.ibb.co/1YY3D056/e04a7650e330d447a4138cbae4851257.jpg",
@@ -20,15 +19,15 @@ function Home({ onNavigate }: HomeProps) {
     "https://i.ibb.co/TCwdLtV/e9e8cc9e24cedcb70f43b77e553d56c6.jpg",
   ];
 
-  // Animation halo léger
+  // Animation douce du fond
   useEffect(() => {
     let animationFrameId: number;
     let time = 0;
     const animate = () => {
       time += 0.01;
       setOffset({
-        x: Math.sin(time) * 20,
-        y: Math.cos(time * 0.8) * 20,
+        x: Math.sin(time) * 15,
+        y: Math.cos(time * 0.8) * 15,
       });
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -36,7 +35,7 @@ function Home({ onNavigate }: HomeProps) {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  // Défilement automatique du carrousel
+  // Changement automatique d’image
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % carouselImages.length);
@@ -44,55 +43,54 @@ function Home({ onNavigate }: HomeProps) {
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 
-  // Scroll top
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <div className="pt-20 bg-[#0D1B2A] text-white overflow-hidden">
-      {/* === HERO SECTION === */}
-      <section className="relative">
-        {/* Carrousel en haut */}
-        <div className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden">
-          {carouselImages.map((img, index) => (
+      {/* === HERO === */}
+      <section className="relative flex flex-col items-center justify-center px-6 md:px-16 space-y-12">
+        {/* Carrousel */}
+        <div className="relative w-full max-w-6xl rounded-2xl overflow-hidden border-4 border-[#195885] shadow-2xl">
+          {carouselImages.map((img, i) => (
             <img
-              key={index}
+              key={i}
               src={img}
-              alt={`slide-${index}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${
-                index === currentImage ? "opacity-100" : "opacity-0"
+              alt={`slide-${i}`}
+              className={`absolute inset-0 w-full h-[75vh] object-cover transition-opacity duration-[1200ms] ${
+                i === currentImage ? "opacity-100" : "opacity-0"
               }`}
               style={{
                 transform: `translate(${offset.x / 5}px, ${offset.y / 5}px)`,
               }}
             />
           ))}
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
-        {/* Texte et boutons sous les images */}
-        <div className="relative z-10 -mt-24 md:-mt-32 px-6 md:px-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#195885] drop-shadow-lg">
+        {/* Texte et boutons */}
+        <div className="text-center space-y-6 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#195885] drop-shadow-xl">
             DOMOBRAND & SECURITY
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mt-6 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
             Spécialiste du <strong>branding</strong>, de la{" "}
             <strong>communication visuelle</strong> et des{" "}
             <strong>solutions de sécurité domotique</strong> :
             vidéosurveillance, contrôle d’accès, alarme intrusion, clôture
             électrique, et plus encore.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
             <button
               onClick={() => onNavigate("services")}
-              className="bg-[#195885] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2F6FA5] transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              className="bg-[#195885] text-white px-10 py-4 rounded-lg font-semibold hover:bg-[#2F6FA5] transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
               Découvrir nos services <ArrowRight className="w-5 h-5" />
             </button>
             <button
               onClick={() => onNavigate("partnership")}
-              className="border-2 border-[#195885] text-[#195885] px-8 py-4 rounded-lg font-semibold hover:bg-[#195885] hover:text-white transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-[#195885] text-[#195885] px-10 py-4 rounded-lg font-semibold hover:bg-[#195885] hover:text-white transition-all duration-300 transform hover:scale-105"
             >
               Demander un devis
             </button>
@@ -100,47 +98,47 @@ function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* === SECTION SERVICES === */}
-      <section className="py-20 px-6 md:px-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#195885] text-center mb-12">
+      {/* === SERVICES === */}
+      <section className="py-24 px-6 md:px-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#195885] text-center mb-16">
           Nos Services
         </h2>
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Branding */}
-          <div className="bg-[#11263B] p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="bg-[#11263B] p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
             <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
               <Palette size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">
               Branding & Communication Visuelle
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-6">
               Autocollants, vinyles, enseignes lumineuses, covering véhicules,
               impression grand format.
             </p>
             <button
               onClick={() => onNavigate("services")}
-              className="text-[#195885] font-semibold flex items-center hover:gap-3 gap-2 transition-all"
+              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all"
             >
               En savoir plus <ArrowRight size={20} />
             </button>
           </div>
 
           {/* Domotique */}
-          <div className="bg-[#11263B] p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="bg-[#11263B] p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
             <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
               <Shield size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">
               Télécoms & Domotique
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-6">
               Vidéosurveillance, contrôle d'accès, alarme intrusion/incendie,
               interphone, vidéoportier.
             </p>
             <button
               onClick={() => onNavigate("services")}
-              className="text-[#195885] font-semibold flex items-center hover:gap-3 gap-2 transition-all"
+              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all"
             >
               En savoir plus <ArrowRight size={20} />
             </button>
@@ -148,8 +146,8 @@ function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* === SECTION À PROPOS === */}
-      <section className="py-20 px-6 md:px-16 bg-[#11263B] text-center rounded-2xl mx-6 md:mx-16">
+      {/* === À PROPOS === */}
+      <section className="py-24 px-6 md:px-16 bg-[#11263B] text-center rounded-2xl mx-6 md:mx-16">
         <h2 className="text-3xl md:text-4xl font-bold text-[#195885] mb-8">
           À propos de nous
         </h2>
@@ -161,12 +159,12 @@ function Home({ onNavigate }: HomeProps) {
         </p>
       </section>
 
-      {/* === SECTION POURQUOI NOUS CHOISIR === */}
-      <section className="py-20 px-6 md:px-16 text-center">
+      {/* === POURQUOI NOUS CHOISIR === */}
+      <section className="py-24 px-6 md:px-16 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-[#195885] mb-12">
           Pourquoi nous choisir ?
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
           {[
             { title: "Qualité", text: "Des prestations haut de gamme et durables." },
             { title: "Fiabilité", text: "Une équipe expérimentée et engagée." },
@@ -175,7 +173,7 @@ function Home({ onNavigate }: HomeProps) {
           ].map((item, i) => (
             <div
               key={i}
-              className="p-6 bg-[#11263B] rounded-2xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="p-8 bg-[#11263B] rounded-2xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
             >
               <h3 className="text-xl font-semibold text-[#195885] mb-2">
                 {item.title}
@@ -186,8 +184,8 @@ function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* === CTA FINAL === */}
-      <section className="py-20 px-6 md:px-16 text-center bg-[#195885] rounded-2xl mx-6 md:mx-16">
+      {/* === CTA === */}
+      <section className="py-24 px-6 md:px-16 text-center bg-[#195885] rounded-2xl mx-6 md:mx-16">
         <Users size={64} className="mx-auto mb-6 opacity-90" />
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
           Prêt à démarrer votre projet ?
