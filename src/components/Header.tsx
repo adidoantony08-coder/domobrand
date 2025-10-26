@@ -34,18 +34,25 @@ function Header({ currentPage, onNavigate }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900 ${
-        isScrolled ? 'shadow-lg' : ''
-      }`}
+      className={`relative fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+      overflow-hidden rounded-b-2xl
+      ${isScrolled ? 'shadow-xl shadow-blue-500/20' : ''}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* --- Lumière bleue/blanche diffuse derrière --- */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-400/10 via-slate-900 to-slate-950 blur-2xl" />
+
+      {/* --- Animation du contour lumineux --- */}
+      <div className="absolute inset-0 rounded-b-2xl pointer-events-none border border-transparent before:absolute before:inset-0 before:rounded-b-2xl before:border-2 before:border-blue-400/40 before:animate-borderGlow" />
+
+      {/* --- Contenu du header --- */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer select-none"
             onClick={() => handleNavClick('home')}
           >
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
               DOMOBRAND <span className="text-amber-400">&</span> SECURITY
             </div>
           </div>
@@ -56,9 +63,9 @@ function Header({ currentPage, onNavigate }: HeaderProps) {
               <button
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
-                className={`text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400/40 px-1 py-1 rounded-sm ${
+                className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400/40 px-1 py-1 rounded-sm ${
                   currentPage === item.page
-                    ? 'text-white border-b-2 border-amber-400'
+                    ? 'text-white border-b-2 border-amber-400 drop-shadow-[0_0_5px_rgba(255,255,255,0.7)]'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -86,9 +93,9 @@ function Header({ currentPage, onNavigate }: HeaderProps) {
         </div>
       </div>
 
-      {/* Menu Mobile latéral gauche */}
+      {/* Menu Mobile */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-slate-900 text-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full w-72 bg-slate-900/95 backdrop-blur-lg text-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-hidden={!isMobileMenuOpen}
