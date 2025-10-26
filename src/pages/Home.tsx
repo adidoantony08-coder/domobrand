@@ -19,7 +19,6 @@ function Home({ onNavigate }: HomeProps) {
     "https://i.ibb.co/TCwdLtV/e9e8cc9e24cedcb70f43b77e553d56c6.jpg",
   ];
 
-  // Animation subtile d'arrière-plan
   useEffect(() => {
     let animationFrameId: number;
     let time = 0;
@@ -35,7 +34,6 @@ function Home({ onNavigate }: HomeProps) {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  // Carrousel automatique
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % carouselImages.length);
@@ -50,9 +48,9 @@ function Home({ onNavigate }: HomeProps) {
   return (
     <div className="pt-20 bg-[#0D1B2A] text-white overflow-hidden">
       {/* === HERO === */}
-      <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-between px-6 md:px-16">
+      <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center text-center px-6 md:px-16 gap-10">
         {/* Texte principal */}
-        <div className="z-10 max-w-xl md:w-1/2 space-y-6 text-left">
+        <div className="z-10 max-w-xl space-y-6">
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#195885] leading-tight drop-shadow-md">
             DOMOBRAND & SECURITY
           </h1>
@@ -61,7 +59,7 @@ function Home({ onNavigate }: HomeProps) {
             Nous allions créativité et technologie pour protéger, valoriser et moderniser vos espaces professionnels et résidentiels.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <button
               onClick={() => onNavigate("services")}
               className="bg-[#195885] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#2F6FA5] transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2"
@@ -78,7 +76,7 @@ function Home({ onNavigate }: HomeProps) {
         </div>
 
         {/* Carrousel */}
-        <div className="relative md:w-1/2 w-full mt-10 md:mt-0 flex justify-center">
+        <div className="relative w-full md:w-1/2 flex justify-center">
           <div
             className="w-[90%] h-[400px] md:h-[500px] rounded-3xl overflow-hidden border-4 border-[#195885] shadow-2xl"
             style={{ transform: `translate(${offset.x / 5}px, ${offset.y / 5}px)` }}
@@ -98,31 +96,29 @@ function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* === SERVICES === */}
-      <section className="py-24 px-6 md:px-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#195885] text-center mb-12">
+      <section className="py-24 px-6 md:px-16 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#195885] mb-12">
           Nos Domaines d’Expertise
         </h2>
-        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          {/* Branding */}
-          <div className="bg-[#11263B] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-            <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto justify-items-center">
+          <div className="bg-[#11263B] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+            <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto">
               <Palette size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-semibold mb-3">Branding & Communication Visuelle</h3>
             <p className="text-gray-300 mb-4">
-              Création d’identités visuelles, autocollants, vinyles, enseignes lumineuses, covering de véhicules, signalétique intérieure et extérieure.
+              Création d’identités visuelles, autocollants, vinyles, enseignes lumineuses, covering véhicules, signalétique intérieure et extérieure.
             </p>
             <button
               onClick={() => onNavigate("services")}
-              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all mx-auto"
             >
               En savoir plus <ArrowRight size={18} />
             </button>
           </div>
 
-          {/* Sécurité */}
-          <div className="bg-[#11263B] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-            <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+          <div className="bg-[#11263B] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+            <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto">
               <Shield size={32} className="text-white" />
             </div>
             <h3 className="text-2xl font-semibold mb-3">Télécoms & Domotique</h3>
@@ -131,7 +127,7 @@ function Home({ onNavigate }: HomeProps) {
             </p>
             <button
               onClick={() => onNavigate("services")}
-              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+              className="text-[#195885] font-semibold flex items-center gap-2 hover:gap-3 transition-all mx-auto"
             >
               En savoir plus <ArrowRight size={18} />
             </button>
@@ -155,7 +151,7 @@ function Home({ onNavigate }: HomeProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-[#195885] mb-12">
           Pourquoi nous choisir ?
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto justify-items-center">
           {[
             { title: "Qualité", text: "Des prestations professionnelles et durables." },
             { title: "Fiabilité", text: "Une équipe compétente et engagée." },
@@ -164,7 +160,7 @@ function Home({ onNavigate }: HomeProps) {
           ].map((item, i) => (
             <div
               key={i}
-              className="p-6 bg-[#11263B] rounded-2xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="p-6 bg-[#11263B] rounded-2xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-center"
             >
               <h3 className="text-xl font-semibold text-[#195885] mb-2">{item.title}</h3>
               <p className="text-gray-300">{item.text}</p>
