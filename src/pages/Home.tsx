@@ -49,14 +49,13 @@ function Home({ onNavigate }: HomeProps) {
     <div className="pt-20 bg-[#0D1B2A] text-white overflow-hidden">
       {/* === HERO === */}
       <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center text-center px-6 md:px-16 gap-10">
-        {/* Texte principal */}
         <div className="z-10 max-w-xl space-y-6">
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#195885] leading-tight drop-shadow-md">
             DOMOBRAND & SECURITY
           </h1>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-            Experts en <strong>branding</strong> et en <strong>communication digitale</strong>.  
-            Nous aidons les entreprises à valoriser leur image, renforcer leur visibilité en ligne et sécuriser leurs espaces grâce à des solutions innovantes.
+            Experts en <strong>branding physique</strong> et <strong>communication digitale</strong>.  
+            Habillage et déshabillage de vitres, autocollants au sol, branding véhicules et signalétique complète pour valoriser votre marque et vos espaces.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -75,7 +74,6 @@ function Home({ onNavigate }: HomeProps) {
           </div>
         </div>
 
-        {/* Carrousel */}
         <div className="relative w-full md:w-1/2 flex justify-center">
           <div
             className="w-[90%] h-[400px] md:h-[500px] rounded-3xl overflow-hidden border-4 border-[#195885] shadow-2xl"
@@ -105,9 +103,9 @@ function Home({ onNavigate }: HomeProps) {
             <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto">
               <Palette size={32} className="text-white" />
             </div>
-            <h3 className="text-2xl font-semibold mb-3">Branding & Communication Digitale</h3>
+            <h3 className="text-2xl font-semibold mb-3">Branding Physique & Signalétique</h3>
             <p className="text-gray-300 mb-4">
-              Création d’identités de marque, gestion de la présence en ligne, campagnes digitales, stratégie de contenu et marketing sur les réseaux sociaux.
+              Habillage et déshabillage de vitres, autocollants au sol, branding véhicules, enseignes et signalétique complète pour mettre en valeur votre marque dans vos espaces.
             </p>
             <button
               onClick={() => onNavigate("services")}
@@ -123,7 +121,7 @@ function Home({ onNavigate }: HomeProps) {
             </div>
             <h3 className="text-2xl font-semibold mb-3">Télécoms & Domotique</h3>
             <p className="text-gray-300 mb-4">
-              Installation de systèmes de vidéosurveillance, contrôle d’accès, alarmes intrusion/incendie, interphones et solutions connectées.
+              Installation de systèmes de vidéosurveillance, contrôle d’accès, alarmes intrusion/incendie, interphones et solutions connectées pour protéger vos espaces.
             </p>
             <button
               onClick={() => onNavigate("services")}
@@ -141,8 +139,8 @@ function Home({ onNavigate }: HomeProps) {
           À propos de nous
         </h2>
         <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
-          DOMOBRAND & SECURITY est une entreprise béninoise spécialisée dans le <strong>branding</strong> et la <strong>communication digitale</strong>, ainsi que les solutions technologiques pour la sécurité.  
-          Nous aidons les entreprises à renforcer leur image de marque, leur visibilité et la protection de leurs infrastructures.
+          DOMOBRAND & SECURITY est une entreprise béninoise spécialisée dans le <strong>branding physique</strong> et la <strong>communication digitale</strong>.  
+          Nous accompagnons les entreprises dans la valorisation de leur marque et la protection de leurs espaces grâce à nos solutions complètes.
         </p>
       </section>
 
@@ -176,7 +174,7 @@ function Home({ onNavigate }: HomeProps) {
           Démarrez votre projet avec nous
         </h2>
         <p className="text-lg text-gray-100 mb-8 max-w-xl mx-auto">
-          Obtenez une consultation gratuite et découvrez comment nos solutions en <strong>branding</strong> et <strong>communication digitale</strong> peuvent transformer votre entreprise.
+          Contactez-nous pour un devis gratuit et découvrez comment notre <strong>branding physique</strong> et notre <strong>communication digitale</strong> peuvent valoriser votre marque.
         </p>
         <button
           onClick={() => onNavigate("partnership")}
