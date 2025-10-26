@@ -55,8 +55,8 @@ function Home({ onNavigate }: HomeProps) {
             DOMOBRAND & SECURITY
           </h1>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-            Experts en <strong>communication visuelle</strong> et en <strong>solutions de sécurité domotique</strong>.  
-            Nous allions créativité et technologie pour protéger, valoriser et moderniser vos espaces professionnels et résidentiels.
+            Experts en <strong>branding</strong> et en <strong>communication digitale</strong>.  
+            Nous aidons les entreprises à valoriser leur image, renforcer leur visibilité en ligne et sécuriser leurs espaces grâce à des solutions innovantes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -105,9 +105,9 @@ function Home({ onNavigate }: HomeProps) {
             <div className="bg-[#195885] w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto">
               <Palette size={32} className="text-white" />
             </div>
-            <h3 className="text-2xl font-semibold mb-3">Branding & Communication Visuelle</h3>
+            <h3 className="text-2xl font-semibold mb-3">Branding & Communication Digitale</h3>
             <p className="text-gray-300 mb-4">
-              Création d’identités visuelles, autocollants, vinyles, enseignes lumineuses, covering véhicules, signalétique intérieure et extérieure.
+              Création d’identités de marque, gestion de la présence en ligne, campagnes digitales, stratégie de contenu et marketing sur les réseaux sociaux.
             </p>
             <button
               onClick={() => onNavigate("services")}
@@ -141,8 +141,8 @@ function Home({ onNavigate }: HomeProps) {
           À propos de nous
         </h2>
         <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
-          DOMOBRAND & SECURITY est une entreprise béninoise spécialisée dans la conception visuelle et les solutions technologiques pour la sécurité.  
-          Nous accompagnons les entreprises et institutions dans la valorisation de leur image et la protection de leurs infrastructures.
+          DOMOBRAND & SECURITY est une entreprise béninoise spécialisée dans le <strong>branding</strong> et la <strong>communication digitale</strong>, ainsi que les solutions technologiques pour la sécurité.  
+          Nous aidons les entreprises à renforcer leur image de marque, leur visibilité et la protection de leurs infrastructures.
         </p>
       </section>
 
@@ -176,7 +176,7 @@ function Home({ onNavigate }: HomeProps) {
           Démarrez votre projet avec nous
         </h2>
         <p className="text-lg text-gray-100 mb-8 max-w-xl mx-auto">
-          Obtenez une consultation gratuite et découvrez comment nos solutions peuvent transformer votre communication et votre sécurité.
+          Obtenez une consultation gratuite et découvrez comment nos solutions en <strong>branding</strong> et <strong>communication digitale</strong> peuvent transformer votre entreprise.
         </p>
         <button
           onClick={() => onNavigate("partnership")}
