@@ -202,22 +202,3 @@ const ServiceCard = ({
 );
 
 export default Home;
-
-/* === AJOUTE CE CSS DANS TON GLOBAL.CSS OU INDEX.CSS ===
-   Pour créer l’effet de contour animé autour du header */
-
-@keyframes borderGlow {
-  0% {
-    border-image: linear-gradient(90deg, #195885, transparent) 1;
-  }
-  50% {
-    border-image: linear-gradient(180deg, #195885, transparent) 1;
-  }
-  100% {
-    border-image: linear-gradient(360deg, #195885, transparent) 1;
-  }
-}
-
-.animate-borderGlow {
-  animation: borderGlow 4s linear infinite;
-}
