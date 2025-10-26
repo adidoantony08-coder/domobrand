@@ -81,3 +81,19 @@ header::after {
     background-position: top left, top right, bottom right, bottom left;
   }
 }
+
+@keyframes borderGlow {
+  0% {
+    border-image: linear-gradient(90deg, #195885, transparent) 1;
+  }
+  50% {
+    border-image: linear-gradient(180deg, #195885, transparent) 1;
+  }
+  100% {
+    border-image: linear-gradient(360deg, #195885, transparent) 1;
+  }
+}
+
+.animate-borderGlow {
+  animation: borderGlow 4s linear infinite;
+}
